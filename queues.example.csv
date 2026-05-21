@@ -1,0 +1,2 @@
+QueueID,SourceURL,Active,UtilityName,Notes
+queuewatch-smoke-test,https://httpbin.org/base64/SW50ZXJjb25uZWN0aW9uIFF1ZXVlIElEOiBRVy1TTU9LRS0wMDEKQ2FwYWNpdHk6IDUwIE1XClN1YnN0YXRpb24gb3IgTm9kZTogT2FrIENyZWVrIDIzMApTdGF0dXM6IEFjdGl2ZQpEZXZlbG9wZXI6IEV4YW1wbGUgU29sYXIgTExDCg==,true,Smoke Test Utility,Synthetic text endpoint for deployment smoke tests

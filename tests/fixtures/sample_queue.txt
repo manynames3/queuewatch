@@ -1,0 +1,5 @@
+Interconnection Queue ID: QW-SMOKE-001
+Capacity: 50 MW
+Substation or Node: Oak Creek 230
+Status: Active
+Developer: Example Solar LLC

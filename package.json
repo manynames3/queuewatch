@@ -1,0 +1,12 @@
+{
+  "name": "queuewatch-landing",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:landing": "npx wrangler@latest pages dev landing",
+    "deploy:landing": "npx wrangler@latest pages deploy landing --project-name queuewatch --branch main"
+  },
+  "devDependencies": {
+    "wrangler": "^4.93.0"
+  }
+}
