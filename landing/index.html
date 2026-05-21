@@ -6,17 +6,17 @@
     <title>QueueWatch | Interconnection Queue Intelligence</title>
     <meta
       name="description"
-      content="QueueWatch monitors utility interconnection queues, detects changes, and extracts capacity signals before competitors see them."
+      content="QueueWatch monitors official public interconnection queue sources and surfaces source-backed project deltas for power-constrained site and origination teams."
     />
     <meta property="og:title" content="QueueWatch | Interconnection Queue Intelligence" />
     <meta
       property="og:description"
-      content="Daily utility queue monitoring, change detection, and structured capacity intelligence for power developers, data center teams, and infrastructure investors."
+      content="Daily interconnection queue monitoring, project-row snapshots, and source-backed capacity deltas for data center, renewables, storage, and infrastructure teams."
     />
     <meta property="og:image" content="/assets/queuewatch-hero.png" />
-    <meta name="theme-color" content="#111412" />
+    <meta name="theme-color" content="#07110e" />
     <link rel="preload" href="/assets/queuewatch-hero.png" as="image" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css?v=20260521-ui3" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -25,10 +25,10 @@
         <span>QueueWatch</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
+        <a href="#problem">Problem</a>
+        <a href="#proof">Proof</a>
         <a href="#coverage">Coverage</a>
-        <a href="#signals">Signals</a>
         <a href="#workflow">Workflow</a>
-        <a href="#buyers">Buyers</a>
         <a href="#pilot">Pilot</a>
       </nav>
       <a class="header-cta" href="#pilot">Request pilot</a>
@@ -36,221 +36,283 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="eyebrow">Daily queue monitoring for power-constrained markets</p>
-          <h1 id="hero-title">QueueWatch</h1>
+          <p class="eyebrow">For site acquisition, origination, and infrastructure teams</p>
+          <h1 id="hero-title">Know when interconnection capacity moves.</h1>
           <p class="hero-copy">
-            Know when grid capacity opens before your competitors do. QueueWatch turns public interconnection queues into daily, structured signals for site selection, acquisition, and project origination teams.
+            QueueWatch monitors official public queue sources for power-constrained site, origination, and infrastructure teams. It snapshots project rows and surfaces source-backed deltas when capacity, node, status, or developer fields move.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#pilot">
-              Request a pilot
-              <span aria-hidden="true">→</span>
-            </a>
-            <a class="button secondary" href="#signals">
-              See the signal
-              <span aria-hidden="true">↓</span>
-            </a>
+            <a class="button primary" href="#pilot">Request a pilot <span aria-hidden="true">&rarr;</span></a>
+            <a class="button secondary" href="#proof">See production proof</a>
           </div>
-          <dl class="hero-metrics" aria-label="QueueWatch operating metrics">
+          <ul class="hero-tags" aria-label="Designed for">
+            <li>Data center site acquisition</li>
+            <li>Renewables and storage origination</li>
+            <li>Infrastructure investors</li>
+          </ul>
+        </div>
+        <div class="hero-proof" aria-label="QueueWatch production metrics">
+          <dl>
             <div>
-              <dt>Live coverage</dt>
-              <dd>8 official sources, 15,800 project rows baselined</dd>
+              <dt>Official sources</dt>
+              <dd>8</dd>
             </div>
             <div>
-              <dt>Output</dt>
-              <dd>New, updated, removed, and baseline project signals</dd>
+              <dt>Project rows snapshotted</dt>
+              <dd>15,800</dd>
             </div>
             <div>
-              <dt>Cadence</dt>
-              <dd>Daily checks with zero-idle serverless infrastructure</dd>
+              <dt>Baseline high-capacity signals</dt>
+              <dd>175</dd>
+            </div>
+            <div>
+              <dt>Baseline infrastructure</dt>
+              <dd>Serverless</dd>
             </div>
           </dl>
         </div>
       </section>
 
-      <section class="pain-band" aria-labelledby="pain-title">
-        <div class="section-inner pain-grid">
+      <section class="section problem-section" id="problem" aria-labelledby="problem-title">
+        <div class="section-inner problem-grid">
           <div>
-            <p class="section-kicker">The market problem</p>
-            <h2 id="pain-title">Capacity is public. The timing advantage is not.</h2>
+            <p class="section-kicker">The workflow it replaces</p>
+            <h2 id="problem-title">Manual queue research is too slow for capacity-constrained markets.</h2>
           </div>
-          <p>
-            Utility queues are scattered across PDFs, spreadsheets, portals, and stale HTML. A 50-200 MW status change can sit in plain sight while teams wait for manual research cycles to catch up.
-          </p>
+          <div class="problem-copy">
+            <p>
+              A 50-200 MW project change can decide whether a data center site, storage project, or secondary-market acquisition is worth pursuing. The signal is usually public, but it is buried across PDFs, workbooks, XML feeds, CSV exports, and old utility portals.
+            </p>
+            <p>
+              QueueWatch gives teams a daily review queue of changed project records, not another folder of files to inspect by hand.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compare-section" aria-labelledby="compare-title">
+        <div class="section-inner">
+          <div class="section-heading narrow">
+            <p class="section-kicker">Why it matters</p>
+            <h2 id="compare-title">The buyer is not paying for scraping. They are paying for earlier decisions.</h2>
+          </div>
+          <div class="comparison-grid">
+            <article class="comparison-card weak">
+              <span>Manual research</span>
+              <h3>Analysts hunt through source files after someone remembers to check.</h3>
+              <ul>
+                <li>Portal-by-portal review cadence</li>
+                <li>Hard-to-audit spreadsheet notes</li>
+                <li>Missed withdrawals, queue movement, and node changes</li>
+                <li>Slow handoff to acquisition or investment teams</li>
+              </ul>
+            </article>
+            <article class="comparison-card strong">
+              <span>QueueWatch</span>
+              <h3>Daily source checks produce source-backed project deltas.</h3>
+              <ul>
+                <li>Changed source capture with raw evidence in S3</li>
+                <li>Normalized rows for queue ID, MW, node, status, and developer</li>
+                <li>New, updated, removed, and baseline signal reports</li>
+                <li>Parser status and review fields for operational trust</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof-section" id="proof" aria-labelledby="proof-title">
+        <div class="section-inner proof-layout">
+          <div class="section-heading">
+            <p class="section-kicker">Production proof</p>
+            <h2 id="proof-title">Real public sources are already flowing through the system.</h2>
+            <p>
+              This is not a static mockup or synthetic scraper demo. The repo includes live source cataloging, daily change detection, raw capture, project-row normalization, insight persistence, report generation, and lead capture infrastructure.
+            </p>
+          </div>
+          <div class="proof-stack">
+            <article>
+              <strong>8 official ISO/RTO sources</strong>
+              <p>CAISO, MISO, SPP, PJM, NYISO, ERCOT, and ISO-NE are represented in the production source catalog.</p>
+            </article>
+            <article>
+              <strong>15,800 normalized rows</strong>
+              <p>Structured XLSX, CSV, XML, and HTML sources are parsed into project snapshots for delta comparison.</p>
+            </article>
+            <article>
+              <strong>175 high-capacity baseline signals</strong>
+              <p>The current baseline identifies large capacity records that can anchor early buyer conversations.</p>
+            </article>
+            <article>
+              <strong>Zero-idle architecture</strong>
+              <p>Lambda, DynamoDB on-demand, S3, EventBridge, Bedrock on-demand, DLQs, and alarms keep baseline cost lean.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section signal-section" aria-labelledby="signal-title">
+        <div class="section-inner signal-layout">
+          <article class="signal-panel" aria-label="Example QueueWatch signal">
+            <div class="panel-topline">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Example project delta</span>
+            </div>
+            <dl class="signal-table">
+              <div>
+                <dt>Queue ID</dt>
+                <dd>PJM-AE2-417</dd>
+              </div>
+              <div>
+                <dt>Capacity</dt>
+                <dd>175 MW</dd>
+              </div>
+              <div>
+                <dt>Node</dt>
+                <dd>Oak Creek 230 kV</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>Active</dd>
+              </div>
+              <div>
+                <dt>Developer</dt>
+                <dd>Available when published</dd>
+              </div>
+              <div>
+                <dt>Evidence</dt>
+                <dd>Raw source, row fingerprint, extraction timestamp</dd>
+              </div>
+            </dl>
+          </article>
+          <div class="signal-copy">
+            <p class="section-kicker">What users get</p>
+            <h2 id="signal-title">A reviewable signal, not an unexplained AI answer.</h2>
+            <p>
+              Each insight preserves the source file, normalized project row, parser status, and report artifact so teams can trace the signal back to the public queue document.
+            </p>
+            <div class="mini-grid">
+              <article>
+                <h3>Capacity movement</h3>
+                <p>Track MW, queue status, node, utility, market, and developer fields when the source changes.</p>
+              </article>
+              <article>
+                <h3>Buyer-ready reports</h3>
+                <p>Generate HTML, CSV, and JSON outputs that can be reviewed in weekly acquisition meetings.</p>
+              </article>
+              <article>
+                <h3>Cost-aware parsing</h3>
+                <p>Cheap fingerprints run first; LLM/Textract fallback is reserved for sources that need it.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section coverage-section" id="coverage" aria-labelledby="coverage-title">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="section-kicker">Production source coverage</p>
-            <h2 id="coverage-title">Real public queue sources, now normalized into project rows.</h2>
+            <p class="section-kicker">Current source coverage</p>
+            <h2 id="coverage-title">Built around official queue data, not scraped news or rumors.</h2>
             <p>
-              QueueWatch currently tracks official source documents across CAISO, MISO, SPP, PJM, NYISO, ERCOT, and ISO-NE. Structured XLSX, CSV, XML, and HTML sources are parsed into project rows with capacity, status, node, market, and source evidence.
+              Current coverage focuses on ISO/RTO sources with accessible public documents. The system is designed to add more utilities as source URLs, metadata, and access behavior are validated.
             </p>
           </div>
           <div class="coverage-grid" aria-label="Live monitored sources">
             <article>
               <span>CAISO</span>
               <strong>Public Queue Report</strong>
-              <p>PDF source capture for statewide interconnection queue movement.</p>
+              <p>PDF source capture with text, OCR, and LLM fallback path.</p>
             </article>
             <article>
               <span>CAISO</span>
-              <strong>Cluster 15 Requests</strong>
-              <p>XLSX tracking for cluster-specific project requests.</p>
+              <strong>Cluster 15 Queue</strong>
+              <p>XLSX parser for cluster-specific interconnection requests.</p>
             </article>
             <article>
               <span>MISO</span>
               <strong>ERAS Requests</strong>
-              <p>Spreadsheet monitoring for generation interconnection requests.</p>
+              <p>Workbook normalization for generation interconnection records.</p>
             </article>
             <article>
               <span>SPP</span>
               <strong>GI Active Requests</strong>
-              <p>CSV source checks for active generator interconnection requests.</p>
+              <p>CSV parser for active generator interconnection requests.</p>
             </article>
             <article>
               <span>PJM</span>
               <strong>Planning Queues</strong>
-              <p>XML source capture for serial service request status movement.</p>
+              <p>XML project capture for serial service request movement.</p>
             </article>
             <article>
               <span>NYISO</span>
               <strong>Interconnection Queue</strong>
-              <p>XLSX monitoring for New York queue and project updates.</p>
+              <p>XLSX monitoring for New York queue updates.</p>
             </article>
             <article>
               <span>ERCOT</span>
               <strong>GIS Report</strong>
-              <p>Latest-report resolver tracks the current monthly GIS workbook.</p>
+              <p>Resolver selects the latest monthly public GIS workbook.</p>
             </article>
             <article>
               <span>ISO-NE</span>
               <strong>Public Queue Portal</strong>
-              <p>HTML portal capture for New England interconnection status visibility.</p>
+              <p>HTML portal capture for public New England queue status.</p>
             </article>
-          </div>
-          <div class="coverage-proof">
-            <strong>Live run proof</strong>
-            <span>15,800 project rows snapshotted, 175 high-capacity baseline signals generated, 0 DLQ messages.</span>
           </div>
         </div>
       </section>
 
-      <section class="section" id="signals" aria-labelledby="signals-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">What QueueWatch sells</p>
-            <h2 id="signals-title">A head start on scarce interconnection capacity.</h2>
-            <p>
-              QueueWatch watches the source documents, separates real changes from noise, and packages the signal into fields your team can act on immediately.
-            </p>
-          </div>
-          <div class="signal-layout">
-            <article class="signal-panel">
-              <div class="panel-topline">
-                <span class="status-dot"></span>
-                <span>New capacity signal</span>
-              </div>
-              <dl class="signal-table">
-                <div>
-                  <dt>Queue ID</dt>
-                  <dd>PJM-AE2-417</dd>
-                </div>
-                <div>
-                  <dt>Capacity</dt>
-                  <dd>175 MW</dd>
-                </div>
-                <div>
-                  <dt>Node</dt>
-                  <dd>Oak Creek 230 kV</dd>
-                </div>
-                <div>
-                  <dt>Status</dt>
-                  <dd>Active</dd>
-                </div>
-                <div>
-                  <dt>Developer</dt>
-                  <dd>Filed under shell entity</dd>
-                </div>
-              </dl>
-            </article>
-            <div class="signal-copy">
-              <div>
-                <h3>Change detection before analysis spend</h3>
-                <p>
-                  Lightweight hash checks run first. Bedrock parsing only runs after a confirmed source change, keeping the operating model lean.
-                </p>
-              </div>
-              <div>
-              <h3>Structured output your pipeline can trust</h3>
-              <p>
-                  Every alert keeps the raw source file, project row fingerprint, extraction timestamp, capacity fields, and parser status for auditability.
-              </p>
-              </div>
-              <div>
-                <h3>Built for messy public infrastructure data</h3>
-                <p>
-                  QueueWatch handles PDFs, spreadsheets, HTML pages, and OCR fallback for scanned queue documents.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section muted" id="workflow" aria-labelledby="workflow-title">
+      <section class="section workflow-section" id="workflow" aria-labelledby="workflow-title">
         <div class="section-inner">
           <div class="section-heading compact">
             <p class="section-kicker">How it works</p>
-            <h2 id="workflow-title">A serverless intelligence loop for utility queues.</h2>
+            <h2 id="workflow-title">A serverless loop that separates cheap monitoring from expensive extraction.</h2>
           </div>
           <div class="workflow">
             <article>
               <span class="step">01</span>
-              <h3>Watch</h3>
-              <p>Daily source checks scan active utility targets without long-running servers.</p>
+              <h3>Fingerprint</h3>
+              <p>Daily checks compare ETag, Last-Modified, content length, hashes, or bounded probes.</p>
             </article>
             <article>
               <span class="step">02</span>
-              <h3>Detect</h3>
-              <p>ETags, hashes, and bounded probes identify changed documents cheaply.</p>
+              <h3>Capture</h3>
+              <p>Changed sources are saved to S3 with source metadata and parser invocation context.</p>
             </article>
             <article>
               <span class="step">03</span>
-              <h3>Extract</h3>
-              <p>Bedrock turns each changed source into clean queue capacity JSON.</p>
+              <h3>Normalize</h3>
+              <p>Deterministic parsers handle structured sources; Bedrock/Textract fallback supports messy PDFs.</p>
             </article>
             <article>
               <span class="step">04</span>
-              <h3>Act</h3>
-              <p>Your team gets the MW, node, status, developer, and source evidence.</p>
+              <h3>Report</h3>
+              <p>Project deltas are written to DynamoDB and exported as HTML, CSV, and JSON reports.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="buyers" aria-labelledby="buyers-title">
+      <section class="section buyer-section" aria-labelledby="buyer-title">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="section-kicker">Who buys it</p>
-            <h2 id="buyers-title">Teams that cannot wait for monthly queue research.</h2>
+            <p class="section-kicker">Best-fit buyers</p>
+            <h2 id="buyer-title">Teams whose economics change when capacity information arrives earlier.</h2>
           </div>
           <div class="buyer-grid">
             <article>
               <h3>Data center site acquisition</h3>
-              <p>Spot available power and queue withdrawals before land competition reprices the county.</p>
+              <p>Prioritize counties, substations, and land conversations when queue movement suggests available power.</p>
             </article>
             <article>
               <h3>Renewables and storage origination</h3>
-              <p>Track interconnection movement by node, capacity, developer, and queue status.</p>
+              <p>Monitor interconnection movement by market, node, status, capacity, and developer entity.</p>
             </article>
             <article>
               <h3>Infrastructure investors</h3>
-              <p>Monitor secondary-market project signals tied to stranded land and grid optionality.</p>
+              <p>Watch project withdrawals, large capacity changes, and secondary-market signals tied to grid optionality.</p>
             </article>
           </div>
         </div>
@@ -259,10 +321,10 @@
       <section class="section calculator-section" aria-labelledby="calculator-title">
         <div class="section-inner calculator-grid">
           <div>
-            <p class="section-kicker">Value of speed</p>
-            <h2 id="calculator-title">What is a two-week head start worth?</h2>
+            <p class="section-kicker">Buyer math</p>
+            <h2 id="calculator-title">Model the value of seeing a signal before the market reacts.</h2>
             <p>
-              Model the commercial value of seeing a capacity signal before the market reacts.
+              This calculator is a conversation starter for pilot scoping. The actual value depends on territory, power scarcity, land control, and the decision the signal unlocks.
             </p>
           </div>
           <div class="calculator" data-calculator>
@@ -289,41 +351,18 @@
         </div>
       </section>
 
-      <section class="section proof-section" aria-labelledby="proof-title">
-        <div class="section-inner">
-          <div class="section-heading compact">
-            <p class="section-kicker">Built for operators</p>
-            <h2 id="proof-title">Low baseline cost. High-signal output.</h2>
-          </div>
-          <div class="proof-grid">
-            <article>
-              <strong>Zero-idle architecture</strong>
-              <p>AWS Lambda, DynamoDB on-demand, S3, EventBridge, and Bedrock on-demand only run when work exists.</p>
-            </article>
-            <article>
-              <strong>Source-backed alerts</strong>
-              <p>Every insight links to the raw captured document and change fingerprint.</p>
-            </article>
-            <article>
-              <strong>Extensible coverage</strong>
-              <p>Add new utilities with a queue ID, source URL, and active flag.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="final-cta" id="pilot" aria-labelledby="pilot-title">
         <div class="section-inner final-cta-inner">
           <div>
-            <p class="section-kicker">Pilot offer</p>
-            <h2 id="pilot-title">Start with the queues that decide your next deal.</h2>
+            <p class="section-kicker">Pilot request</p>
+            <h2 id="pilot-title">Start with the queue sources that affect your next siting or acquisition decision.</h2>
             <p>
-              Pick your territories. QueueWatch will monitor the public sources, identify changed capacity signals, and deliver a reviewed report your team can use in weekly acquisition decisions.
+              QueueWatch is currently offered as a focused pilot, not a self-serve SaaS signup. Share your territories and the decision you need to support; the pilot will be scoped around source coverage, report cadence, and review workflow.
             </p>
             <ul class="pilot-list">
-              <li>30-day pilot for 10-25 priority sources</li>
-              <li>Daily source monitoring with raw document evidence</li>
-              <li>CSV and HTML signal reports with confidence/review status</li>
+              <li>Daily monitoring for priority public queue sources</li>
+              <li>Raw document evidence plus CSV, JSON, and HTML reports</li>
+              <li>Source limitations called out before any paid pilot</li>
             </ul>
           </div>
           <form class="pilot-form" data-pilot-form data-endpoint="https://7uixp6g37k.execute-api.us-east-1.amazonaws.com/pilot">
@@ -352,8 +391,7 @@
               <textarea name="use_case" rows="3" required placeholder="What signal would change a site, acquisition, or project decision?"></textarea>
             </label>
             <button class="button primary full" type="submit">
-              Request pilot
-              <span aria-hidden="true">→</span>
+              Request pilot <span aria-hidden="true">&rarr;</span>
             </button>
             <p class="form-status" data-form-status role="status"></p>
           </form>
@@ -368,6 +406,6 @@
       </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="/script.js?v=20260521-ui3"></script>
   </body>
 </html>
