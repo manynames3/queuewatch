@@ -2,6 +2,15 @@
 
 Serverless change detection and LLM extraction for public utility interconnection queues.
 
+Live site: [queuewatch.pages.dev](https://queuewatch.pages.dev)
+
+## Current Production Status
+
+- Monitors 8 official ISO/RTO queue sources across CAISO, MISO, SPP, PJM, NYISO, ERCOT, and ISO-NE.
+- Normalizes structured XLSX, CSV, XML, and HTML sources into 15,800 project-row snapshots.
+- Generates source-backed project signals with raw S3 evidence, row fingerprints, review status, and buyer-facing HTML/CSV/JSON reports.
+- Runs on zero-idle AWS infrastructure: Lambda, DynamoDB on-demand, S3, EventBridge Scheduler, Bedrock on demand, SQS DLQs, and CloudWatch alarms.
+
 ## Architecture
 
 - EventBridge Scheduler invokes `queuewatch-orchestrator` daily.
