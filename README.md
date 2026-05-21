@@ -4,8 +4,6 @@ QueueWatch is a production AWS serverless data product that watches public utili
 
 Live site: [queuewatch.pages.dev](https://queuewatch.pages.dev)
 
-![QueueWatch landing page](landing/assets/queuewatch-hero.png)
-
 ## Why This Exists
 
 Power availability is now a deal constraint for data centers, renewables, storage, and infrastructure investors. The public signals already exist, but they are buried in utility queue PDFs, spreadsheets, XML files, CSV exports, and old public portals.
