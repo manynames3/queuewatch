@@ -309,8 +309,13 @@ class ReporterTests(unittest.TestCase):
             ],
             "2026-05-21T10:00:00Z",
         )
+        self.assertEqual(report["schema_version"], "queuewatch.report.v1")
         self.assertEqual(report["summary"]["total_signals"], 1)
         self.assertEqual(report["summary"]["total_capacity_mw"], 50)
+        self.assertIn("evidence_key", report["signals"][0])
+        self.assertIn("parser_status", report["signals"][0])
+        self.assertEqual(report["source_health"][0]["source_queue_id"], "queuewatch-smoke-test")
+        self.assertIn("limitations", report)
         self.assertIn("QueueWatch Daily Signal Report", reporter.render_text_report(report))
 
     def test_build_report_prefers_project_delta_rows(self) -> None:

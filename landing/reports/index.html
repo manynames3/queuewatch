@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QueueWatch Sample Report</title>
+    <meta
+      name="description"
+      content="Sample QueueWatch report showing source-backed interconnection queue project deltas with filters and CSV export."
+    />
+    <meta name="theme-color" content="#030806" />
+    <link rel="stylesheet" href="/reports/report.css?v=20260522-close" />
+  </head>
+  <body>
+    <header class="report-header">
+      <a class="brand" href="/" aria-label="QueueWatch home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>QueueWatch</span>
+      </a>
+      <nav aria-label="Report navigation">
+        <a href="/">Landing</a>
+        <a href="#signals">Signals</a>
+        <a href="/#pilot">Request pilot</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="report-hero" aria-labelledby="report-title">
+        <p class="kicker">Pilot-grade report preview</p>
+        <h1 id="report-title">Daily queue changes with source health, evidence, and buyer filters.</h1>
+        <p>
+          This report shows the product surface a pilot buyer would receive: changed project rows, source freshness, parser status, known limitations, and CSV export for internal review.
+        </p>
+        <div class="report-actions">
+          <a class="button primary" href="/#pilot">Request pilot <span aria-hidden="true">&rarr;</span></a>
+          <button class="button secondary" type="button" data-export-csv>Export filtered CSV</button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Report summary">
+        <article>
+          <span>Total signals</span>
+          <strong data-summary="total_signals">-</strong>
+        </article>
+        <article>
+          <span>Total capacity</span>
+          <strong><span data-summary="total_capacity_mw">-</span> MW</strong>
+        </article>
+        <article>
+          <span>New / updated</span>
+          <strong><span data-summary="new_signals">-</span> / <span data-summary="updated_signals">-</span></strong>
+        </article>
+        <article>
+          <span>Needs review</span>
+          <strong data-summary="needs_review">-</strong>
+        </article>
+        <article>
+          <span>Sources healthy</span>
+          <strong><span data-source-health-ok>-</span> / <span data-source-health-total>-</span></strong>
+        </article>
+      </section>
+
+      <section class="status-grid" aria-label="Report freshness and trust status">
+        <article>
+          <span>Current snapshot</span>
+          <strong data-current-snapshot>-</strong>
+        </article>
+        <article>
+          <span>Previous snapshot</span>
+          <strong data-previous-snapshot>-</strong>
+        </article>
+        <article>
+          <span>Evidence policy</span>
+          <strong>Raw source retained</strong>
+        </article>
+        <article>
+          <span>Report use</span>
+          <strong>Review before action</strong>
+        </article>
+      </section>
+
+      <section class="tool-panel" id="sources" aria-labelledby="sources-title">
+        <div class="tool-heading">
+          <div>
+            <p class="kicker">Source health</p>
+            <h2 id="sources-title">Trust starts with knowing what ran.</h2>
+          </div>
+          <p>Last check, parser status, row count, and limitation are shown per source so the report is not a black box.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="source-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th>Source</th>
+                <th>Format</th>
+                <th>Last checked</th>
+                <th>Parser</th>
+                <th>Rows</th>
+                <th>Changes</th>
+                <th>Limitation</th>
+              </tr>
+            </thead>
+            <tbody data-source-health-body>
+              <tr>
+                <td colspan="8" class="empty">Loading source health...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tool-panel" id="signals" aria-labelledby="signals-title">
+        <div class="tool-heading">
+          <div>
+            <p class="kicker">Changed since previous snapshot</p>
+            <h2 id="signals-title">Filter changed queue records.</h2>
+          </div>
+          <p data-report-meta>Loading report data...</p>
+        </div>
+
+        <form class="filters" data-filters>
+          <label>
+            <span>Market</span>
+            <select name="market" data-filter-market>
+              <option value="">All markets</option>
+            </select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select name="status" data-filter-status>
+              <option value="">All statuses</option>
+            </select>
+          </label>
+          <label>
+            <span>Delta</span>
+            <select name="delta" data-filter-delta>
+              <option value="">All deltas</option>
+            </select>
+          </label>
+          <label>
+            <span>Minimum MW</span>
+            <input name="min_mw" data-filter-min-mw type="number" min="0" step="25" placeholder="0" />
+          </label>
+          <label class="search">
+            <span>Search</span>
+            <input name="query" data-filter-query type="search" placeholder="Queue ID, node, developer, project" />
+          </label>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Observed</th>
+                <th>Market</th>
+                <th>Delta</th>
+                <th>Queue ID</th>
+                <th>Capacity</th>
+                <th>Node</th>
+                <th>Status</th>
+                <th>Developer</th>
+                <th>Review</th>
+                <th>Evidence</th>
+              </tr>
+            </thead>
+            <tbody data-signals-body>
+              <tr>
+                <td colspan="10" class="empty">Loading signals...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="decision-grid" aria-label="Pilot readiness details">
+        <article>
+          <p class="kicker">Known limitations</p>
+          <h2>Trustworthy reports disclose what they cannot prove.</h2>
+          <ul data-limitations>
+            <li>Loading limitations...</li>
+          </ul>
+        </article>
+        <article>
+          <p class="kicker">Paid pilot package</p>
+          <h2 data-pilot-title>30-day territory pilot</h2>
+          <ul data-pilot-included>
+            <li>Loading pilot scope...</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="/reports/report.js?v=20260522-close" type="module"></script>
+  </body>
+</html>
