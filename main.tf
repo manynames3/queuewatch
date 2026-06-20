@@ -286,6 +286,7 @@ resource "aws_dynamodb_table" "leads" {
 resource "aws_sqs_queue" "orchestrator_dlq" {
   name                      = "queuewatch-orchestrator-dlq"
   message_retention_seconds = 1209600
+  receive_wait_time_seconds = 20
   sqs_managed_sse_enabled   = true
   tags                      = local.common_tags
 }
@@ -293,6 +294,7 @@ resource "aws_sqs_queue" "orchestrator_dlq" {
 resource "aws_sqs_queue" "parser_dlq" {
   name                      = "queuewatch-parser-dlq"
   message_retention_seconds = 1209600
+  receive_wait_time_seconds = 20
   sqs_managed_sse_enabled   = true
   tags                      = local.common_tags
 }
@@ -300,6 +302,7 @@ resource "aws_sqs_queue" "parser_dlq" {
 resource "aws_sqs_queue" "reporter_dlq" {
   name                      = "queuewatch-reporter-dlq"
   message_retention_seconds = 1209600
+  receive_wait_time_seconds = 20
   sqs_managed_sse_enabled   = true
   tags                      = local.common_tags
 }
