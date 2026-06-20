@@ -2,6 +2,7 @@ import importlib
 import io
 import json
 import os
+import re
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -377,6 +378,20 @@ class LeadCaptureTests(unittest.TestCase):
                     "use_case": "Monitor changes",
                 }
             )
+
+
+class TerraformSqsTests(unittest.TestCase):
+    def test_all_sqs_queues_enable_long_polling(self) -> None:
+        terraform = Path("main.tf").read_text()
+        queue_blocks = re.findall(
+            r'resource "aws_sqs_queue" "[^"]+" \{(.*?)\n\}',
+            terraform,
+            flags=re.DOTALL,
+        )
+
+        self.assertTrue(queue_blocks)
+        for queue_block in queue_blocks:
+            self.assertRegex(queue_block, r"receive_wait_time_seconds\s*=\s*20")
 
 
 if __name__ == "__main__":

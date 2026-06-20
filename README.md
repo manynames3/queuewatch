@@ -243,6 +243,43 @@ aws sqs get-queue-attributes \
   --attribute-names ApproximateNumberOfMessages
 ```
 
+## SQS Cost Safety
+
+QueueWatch does not run an SQS consumer. The three Terraform-managed SQS queues
+are failure-only DLQs for Lambda and EventBridge Scheduler, and the application
+roles have `sqs:SendMessage` permission only. There is no `ReceiveMessage` call,
+Lambda SQS event source mapping, container worker, or development worker startup
+path in this repository.
+
+All DLQs set `receive_wait_time_seconds = 20`, so a future or manual consumer
+that omits `WaitTimeSeconds` uses long polling. Any new SQS worker must:
+
+- require an explicit development enable flag such as `ENABLE_SQS_WORKER=true`;
+- request up to 10 messages with `WaitTimeSeconds=20`;
+- use configurable exponential idle backoff with jitter, capped at 30-60 seconds;
+- reset idle backoff after receiving a message and delete only after successful processing;
+- log its queue, long-poll duration, and idle-backoff configuration at startup.
+
+An empty receive count on a non-QueueWatch queue, or sustained receives on a
+QueueWatch DLQ, must come from a consumer outside this repository. Find that
+consumer through CloudTrail SQS data events, its IAM principal, and the queue's
+resource tags before changing or deleting infrastructure.
+
+To verify usage in CloudWatch, graph `AWS/SQS` -> `NumberOfEmptyReceives`, select
+the `QueueName` dimension, set the statistic to `Sum`, period to `1 day`, and the
+desired date range. The equivalent CLI check for June 2026 is:
+
+```bash
+aws cloudwatch get-metric-statistics \
+  --namespace AWS/SQS \
+  --metric-name NumberOfEmptyReceives \
+  --dimensions Name=QueueName,Value=QUEUE_NAME \
+  --start-time 2026-06-01T00:00:00Z \
+  --end-time 2026-07-01T00:00:00Z \
+  --period 86400 \
+  --statistics Sum
+```
+
 Generate the buyer-facing daily report manually:
 
 ```bash
